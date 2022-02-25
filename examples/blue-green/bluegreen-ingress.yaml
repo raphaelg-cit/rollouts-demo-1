@@ -3,12 +3,11 @@ kind: Ingress
 metadata:
   name: bluegreen-demo
   annotations:
-    ingress.kubernetes.io/proxy-body-size: 100M
-    kubernetes.io/ingress.class: nginx
-    ingress.kubernetes.io/app-root: /
+    # Add ingress.class as addon-http-application-routing
+    kubernetes.io/ingress.class: addon-http-application-routing
 spec:
   rules:
-  - host: blue-green.dev.argoproj.io
+  - host: bluegreen-demo.83ef483f2f5e4fa98c33.eastus.aksapp.io # Add Application DNS name to be registered in DNS
     http:
       paths:
       - path: /
